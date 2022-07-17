@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
-import './app/style.css'
 import App from './app/App.vue'
+import './index.css'
 
-createApp(App).mount('#app')
+import vueCookies from "vue-cookies";
+import router from './app/routes/index'
+import { createPinia } from 'pinia'
+createApp(App)
+.use(vueCookies)
+.use(createPinia())
+.use(router)
+.mount('#app')

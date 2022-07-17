@@ -11,7 +11,8 @@ export default class LoginUseCase implements ILoginUseCase {
   }
   async execute(email: string, password: string): Promise<UserModel> {
     try {
-      return await this._userRepository.login(email, password);
+      const user = await this._userRepository.login(email, password);
+      return user
     } catch (error) {
       throw error;
     }
